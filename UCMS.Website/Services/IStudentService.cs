@@ -4,7 +4,7 @@ namespace UCMS.Website.Services
 {
     public interface IStudentService
     {
-        public string GetAllStudents();
+        public List<Student> GetAllStudents();
         public Student GetStudent(int id);
         public Student CreateStudent(Student student);
         public Student UpdateStudent(Student student);

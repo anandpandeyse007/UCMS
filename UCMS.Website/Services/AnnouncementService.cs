@@ -4,6 +4,11 @@ namespace UCMS.Website.Services
 {
     public class AnnouncementService : IAnnouncementService
     {
+        private readonly ApplicationDbContext _dbContext;
+        public AnnouncementService(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public Announcement CreateAnnouncement(Announcement enrollment)
         {
             throw new NotImplementedException();
