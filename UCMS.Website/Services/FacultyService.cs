@@ -4,9 +4,25 @@ namespace UCMS.Website.Services
 {
     public class FacultyService : IFacultyService
     {
+        private readonly ApplicationDbContext _dbContext;
+        public FacultyService(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public Faculty CreateFaculty(Faculty faculty)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.Faculty.Add(faculty);
+                _dbContext.SaveChanges();
+
+                return faculty;
+            }
+            catch (Exception ex) 
+            { 
+
+            }
+            return null;
         }
 
         public string DeleteFaculty(int id)
@@ -14,14 +30,16 @@ namespace UCMS.Website.Services
             throw new NotImplementedException();
         }
 
-        public string GetFaculty()
+        public List<Faculty> GetFaculties()
         {
-            throw new NotImplementedException();
+            List<Faculty> faculties = _dbContext.Faculty.ToList();
+            return faculties;
         }
 
         public Faculty GetFacultyById(int id)
         {
-            throw new NotImplementedException();
+            Faculty faculty = _dbContext.Faculty.Find(id);
+            return faculty;
         }
 
         public Faculty UpdateFaculty(Faculty faculty)

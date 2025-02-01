@@ -4,6 +4,11 @@ namespace UCMS.Website.Services
 {
     public class StudentService : IStudentService
     {
+        private readonly ApplicationDbContext _dbContext;
+        public StudentService(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public Student CreateStudent(Student student)
         {
             throw new NotImplementedException();
@@ -14,7 +19,7 @@ namespace UCMS.Website.Services
             throw new NotImplementedException();
         }
 
-        public string GetAllStudents()
+        public List<Student> GetAllStudents()
         {
             throw new NotImplementedException();
         }

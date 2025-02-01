@@ -4,7 +4,7 @@ namespace UCMS.Website.Services
 {
     public interface IFacultyService
     {
-        public string GetFaculty();
+        public List<Faculty> GetFaculties();
         public Faculty GetFacultyById(int id);
         public Faculty CreateFaculty(Faculty faculty);
         public Faculty UpdateFaculty(Faculty faculty);
